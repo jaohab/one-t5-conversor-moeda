@@ -1,19 +1,21 @@
-package features;
+package discontinued.features;
 
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
+import Subsystens.ClientHTTP;
+import discontinued.functions.JsonParser;
 import enums.MoedasEnum;
-import functions.ClientHTTP;
-import functions.JsonParser;
 
 public class Moeda {
 
     public void ConversorMoedas() {
 
     String suaMoeda = "";
+    String suaMoedaSigla = "";
     String moedaConversao = "";
+    String moedaConversaoSigla = "";
     String valorInserido = "";
 
     // Construção da lista de oções do menu
@@ -25,16 +27,19 @@ public class Moeda {
 
     while(true) {
         suaMoeda = "";
+        suaMoedaSigla = "";
         moedaConversao = "";
+        moedaConversaoSigla = "";
         valorInserido = "";
 
         // Sua moeda
         suaMoeda += JOptionPane.showInputDialog(null, "Selecione a sua moeda", "Menu", -1, null, opcoes, opcoes[0]);
 
+
         // Recupera a sigla da moeda
         for (MoedasEnum moedas : moedasLista) {
             if (moedas.getNome().equals(suaMoeda)) {
-                suaMoeda = moedas.getSigla();
+                suaMoedaSigla = moedas.getSigla();
                 break;
             }
         }
@@ -48,7 +53,7 @@ public class Moeda {
         // Recupera a sigla da moeda
         for (MoedasEnum moedas : moedasLista) {
             if (moedas.getNome().equals(moedaConversao)) {
-                moedaConversao = moedas.getSigla();
+                moedaConversaoSigla = moedas.getSigla();
                 break;
             }
         }
@@ -60,27 +65,43 @@ public class Moeda {
             break;
         }
     }
-
-    // Construção da URL da API
-    String url = "https://economia.awesomeapi.com.br/" + moedaConversao + "-" + suaMoeda + "/1?format=json";
     
     // Conectar e extrair dados da API
+    String url = "https://economia.awesomeapi.com.br/" + moedaConversaoSigla + "-" + suaMoedaSigla + "/1?format=json";
     ClientHTTP apiLink = new ClientHTTP();
     JsonParser parser = new JsonParser();
 
     String json = apiLink.findData(url);
-    String valorMoeda = parser.Parser(json);
+    String dados[] = parser.Parser(json);
 
-    
+    String valorMoeda = dados[0];
+    String horaCotacao = dados[1];
 
     System.out.println(valorMoeda);
     System.out.println(valorInserido);
 
     // Cálculo
-    double valorFinal = Double.valueOf(valorInserido) * Double.valueOf(valorMoeda);
+    double valorFinal = Double.valueOf(valorInserido) / Double.valueOf(valorMoeda);
     DecimalFormat formato = new DecimalFormat("##.00");
     System.out.println(formato.format(valorFinal));
 
+    // Resutado
+    String resultado = "Conversão de " + suaMoeda + " para " + moedaConversao + 
+                        "\n\n" +
+                        moedaConversaoSigla + "1,00 = " + suaMoedaSigla + " " + formato.format(Double.valueOf(valorMoeda)) +
+                        "\n" +
+                        suaMoedaSigla + " " + formato.format(Double.valueOf(valorInserido)) + " = " + moedaConversaoSigla + " " + formato.format(valorFinal) +
+                        "\n\n" +
+                        "Dados obtidos: " + horaCotacao;    
+
+    JOptionPane.showConfirmDialog(null, resultado, "Resultado", -1, -1, null);
+
+    //System.out.println("Sua moeda (1ª entrada): " + suaMoeda);
+    //System.out.println("Moeda de conversão (2ª entrada): " + moedaConversao);
+    //System.out.println("Valor resgatado pela API da moeda de conversão: " + valorMoeda);
+    //System.out.println("Valor inserido pelo usuario referente a sua moeda: " + valorInserido);
+    //System.out.println("Resultado da conversão: " + formato.format(valorFinal));
+    //System.out.println(resultado);
 
     }
     

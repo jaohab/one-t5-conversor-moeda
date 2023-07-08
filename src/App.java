@@ -1,40 +1,70 @@
 import javax.swing.JOptionPane;
 
 import enums.MenuPrincipalEnum;
-import features.Moeda;
+import functions.Moeda;
+import functions.Temperatura;
+import functions.Velocidade;
+import res.Global;
 
-class App {
+public class App {
+
     public static void main(String[] args) {
 
         // Construção da lista de oções do menu
+
         MenuPrincipalEnum[] menuPrincipal = MenuPrincipalEnum.values();
-        String[] opcoes = new String[menuPrincipal.length];
+        String[] menuPrincipalOpcoes = new String[menuPrincipal.length];
         for (int i = 0; i < menuPrincipal.length; i++) {
-            opcoes[i] = menuPrincipal[i].getOpcao();
+            menuPrincipalOpcoes[i] = menuPrincipal[i].getDescricao();
         }
 
         // Menu Principal
-        String opcaoSeleciona = "";
-        opcaoSeleciona += JOptionPane.showInputDialog(null, "Escolha uma opção", "Menu", -1, null, opcoes, opcoes[0]);
 
-        System.out.println(opcaoSeleciona);
-        
-        switch (opcaoSeleciona) {
-            case "Conversor de moeda":
-                Moeda ConversorMoedas = new Moeda();
-                ConversorMoedas.ConversorMoedas();
-                break;
+        final String MSG = "Escolha qual função deseja usar: ";
+        boolean fechar = false;
 
-            case "Conversor de temperatura":
-                break;
+        while (!fechar) {
 
-            case "Conversor de velocidade":
-                break;
-                
-            case "Fechar programa":
-                break;
+            String opcaoSelecionada = "";
+            opcaoSelecionada += JOptionPane.showOptionDialog(null, MSG, Global.TITULO, 0, -1, null, menuPrincipalOpcoes,
+                    null);
+
+            switch (opcaoSelecionada) {
+                case "0": // Conversor de moeda
+                    Moeda moeda = new Moeda();
+                    try {
+                        moeda.conversor();
+                    } catch (RuntimeException e) {
+
+                    }
+                    break;
+
+                case "1": // Conversor de temperatura
+                    Temperatura temperatura = new Temperatura();
+                    try {
+                        temperatura.conversor();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+
+                case "2": // Conversor de velocidade
+                    Velocidade velocidade = new Velocidade();
+                    try {
+                        velocidade.conversor();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+
+                case "-1", "3": // Fechar programa
+                    fechar = true;
+                    break;
+
+                default:
+                    break;
+
+            }
         }
-
-        JOptionPane.showMessageDialog(null, "Obrigado e espero ter ajudado!", "Menu", -1);
     }
 }

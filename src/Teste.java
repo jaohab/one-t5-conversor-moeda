@@ -1,33 +1,51 @@
-import java.text.DecimalFormat;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JLayer;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
-import functions.ClientHTTP;
-import functions.JsonParser;
+import res.Global;
 
 public class Teste {
 
     public static void main(String[] args) {
 
-        //ClientHTTP apiLink = new ClientHTTP();
-        //JsonParser parser = new JsonParser();
+        String[] opcoes = {"Sim", "Não"};
 
-        //String json = apiLink.findData("https://economia.awesomeapi.com.br/BRL-USD/1?format=json");
-        //System.out.println(parser.Parser(json));
+        //JOptionPane.showMessageDialog(null, "Ação incorreta", Global.TITULO, 3);
+        //System.out.println(JOptionPane.showOptionDialog(null, "Deseja fazer outra conversão?", Global.TITULO, 0, 3, null, opcoes, null));
 
-        //System.out.println(apiLink.findData("https://economia.awesomeapi.com.br/USD-BRL/1?format=json"));
-        //System.out.println(apiLink.findData("https://economia.awesomeapi.com.br/BRL-USD/1?format=json"));
-        //System.out.println(apiLink.findData("https://economia.awesomeapi.com.br/BRL-CLP/1?format=json"));
+        
 
-        //JOptionPane.showInputDialog(null, "Insira um valor:", "Input", 3);
-        //JOptionPane.showInputDialog(null, "Insira um valor:", "Input", 3, null, args, "1");
+        JPanel quadro = new JPanel();
+        JLabel txt1 = new JLabel("Converter ");
+        JTextField valor = new JTextField(3);
+        JLabel txt2 = new JLabel(" para ");
+        JComboBox<String> opcoesLista1 = new JComboBox<String>(opcoes);
+        JComboBox<String> opcoesLista2 = new JComboBox<String>(opcoes);
+        JLabel txt3 = new JLabel("<html><body width='%1s'><p>km/h - Quilômentros por hora<br>mph - Milhas por hora<br>mn - Nós (Milhas náutica por hora)<br>Ma - Número de Mach</p>");
 
-        String valorInserido = "35.45";
-        String valorMoeda = "45";
-        double valorFinal = Double.valueOf(valorInserido) * Double.valueOf(valorMoeda);
+        quadro.add(txt1);
+        quadro.add(valor);
+        quadro.add(opcoesLista1);
+        quadro.add(txt2);
+        quadro.add(opcoesLista2);
+        quadro.add(txt3);
 
-        DecimalFormat formato = new DecimalFormat("##.00");
-        System.out.println(formato.format(valorFinal));
+        JOptionPane.showOptionDialog(null, quadro, Global.TITULO, JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, null);
+
 
     }
     

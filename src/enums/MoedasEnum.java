@@ -7,10 +7,7 @@ public enum MoedasEnum {
     EUR("Euro", "EUR"), 
     GBP("Libra Esterlina", "GBP"), 
     ARS("Peso Argentino", "ARS"), 
-    CLP("Peso Chileno", "CLP"), 
-    CNY("Yuan Chinês", "CNY"), 
-    JPY("Iene Japonês", "JPY"), 
-    KRW("Won Sul-Coreano", "KRW");
+    CLP("Peso Chileno", "CLP");
 
     private final String nome;
     private final String sigla;
@@ -21,11 +18,11 @@ public enum MoedasEnum {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getSigla() {
-        return sigla;
+        return this.sigla;
     }
     
 }

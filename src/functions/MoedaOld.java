@@ -1,14 +1,14 @@
-package discontinued.features;
+package functions;
 
 import java.text.DecimalFormat;
 
 import javax.swing.JOptionPane;
 
 import Subsystens.ClientHTTP;
-import discontinued.functions.JsonParser;
+import Subsystens.JsonParser;
 import enums.MoedasEnum;
 
-public class Moeda {
+public class MoedaOld {
 
     public void ConversorMoedas() {
 

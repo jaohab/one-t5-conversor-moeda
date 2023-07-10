@@ -49,7 +49,7 @@ public class TempCalculos {
             return valorDigitado;
         }
 
-        return valorDigitado;
+        throw new RuntimeException("Erro inesperado - Nenhuma condição atendida.");
 
     }
 }

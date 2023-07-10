@@ -10,7 +10,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        // Construção da lista de oções do menu
+        // Construção da lista de opções do menu
 
         MenuPrincipalEnum[] menuPrincipal = MenuPrincipalEnum.values();
         String[] menuPrincipalOpcoes = new String[menuPrincipal.length];
@@ -35,7 +35,7 @@ public class App {
                     try {
                         moeda.conversor();
                     } catch (RuntimeException e) {
-
+                        System.out.println(e.getMessage());
                     }
                     break;
 
@@ -66,5 +66,9 @@ public class App {
 
             }
         }
+
+        // Agradecimento
+        JOptionPane.showMessageDialog(null, "AVISO_MENSAGEM", Global.TITULO, 0);
+
     }
 }

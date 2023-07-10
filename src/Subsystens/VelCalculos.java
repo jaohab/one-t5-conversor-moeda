@@ -4,52 +4,84 @@ public class VelCalculos {
 
     public double calculos(double valorDigitado, String opcao1Selecionada, String opcao2Selecionada, String[] opcoes) {
 
-        // Base Celsius
+        // Base km/h
 
-        // Celsius para Celsius
+        // km/h para km/h
         if (opcao1Selecionada.equals(opcoes[0]) && opcao2Selecionada.equals(opcoes[0])) {
             return valorDigitado;
         }
-        // Celsius para Fahrenheit
+        // km/h para mph
         if (opcao1Selecionada.equals(opcoes[0]) && opcao2Selecionada.equals(opcoes[1])) {
-            return (valorDigitado * 1.8) + 32d;
+            return valorDigitado / 1.609;
         }
-        // Celsius para Kelvin
+        // km/h para mn/h
         if (opcao1Selecionada.equals(opcoes[0]) && opcao2Selecionada.equals(opcoes[2])) {
-            return valorDigitado + 273.15;
+            return valorDigitado * 0.539957;
+        }
+        // km/h para Ma
+        if (opcao1Selecionada.equals(opcoes[0]) && opcao2Selecionada.equals(opcoes[3])) {
+            return valorDigitado / 1216;
         }
 
-        // Base Fahrenheit
+        // Base mph
 
-        // Fahrenheit para Celsius
+        // mph para km/h 
         if (opcao1Selecionada.equals(opcoes[1]) && opcao2Selecionada.equals(opcoes[0])) {
-            return (valorDigitado - 32) / 1.8;
+            return valorDigitado * 1.609;
         }
-        // Fahrenheit para Fahrenheit
+        // mph para mph
         if (opcao1Selecionada.equals(opcoes[1]) && opcao2Selecionada.equals(opcoes[1])) {
             return valorDigitado;
         }
-        // Fahrenheit para Kelvin
+        // mph para mn/h
         if (opcao1Selecionada.equals(opcoes[1]) && opcao2Selecionada.equals(opcoes[2])) {
-            return ((valorDigitado - 32) / 1.8) + 273.15;
+            return valorDigitado / 1.151;
+        }
+        // mph para Ma
+        if (opcao1Selecionada.equals(opcoes[1]) && opcao2Selecionada.equals(opcoes[3])) {
+            return valorDigitado * 0.00134935104;
         }
 
-        // Base Kelvin
+        // Base mn/h
 
-        // Kelvin para Celsius
+        // mn para km/h
         if (opcao1Selecionada.equals(opcoes[2]) && opcao2Selecionada.equals(opcoes[0])) {
-            return valorDigitado - 273.15;
+            return valorDigitado / 0.539957;
         }
-        // Kelvin para Fahrenheit
+        // mn para mph
         if (opcao1Selecionada.equals(opcoes[2]) && opcao2Selecionada.equals(opcoes[1])) {
-            return ((valorDigitado - 273.15) * 1.8) + 32;
+            return valorDigitado * 1.151;
         }
-        // Kelvin para Kelvin
+        // mn/h para mn/h
         if (opcao1Selecionada.equals(opcoes[2]) && opcao2Selecionada.equals(opcoes[2])) {
             return valorDigitado;
         }
+        // mn para Ma
+        if (opcao1Selecionada.equals(opcoes[2]) && opcao2Selecionada.equals(opcoes[3])) {
+            return valorDigitado * 0.00155280545;
+        }
 
-        return valorDigitado;
+        // Base Ma
+
+        // Ma para km/h
+        if (opcao1Selecionada.equals(opcoes[3]) && opcao2Selecionada.equals(opcoes[0])) {
+            return valorDigitado * 1216;
+        }
+        // Ma para mph
+        if (opcao1Selecionada.equals(opcoes[3]) && opcao2Selecionada.equals(opcoes[1])) {
+            return valorDigitado / 0.00134935104;
+
+        }
+        // Ma para mn/h
+        if (opcao1Selecionada.equals(opcoes[3]) && opcao2Selecionada.equals(opcoes[2])) {
+            return valorDigitado / 0.00155280545;
+        }
+        // Ma para Ma
+        if (opcao1Selecionada.equals(opcoes[3]) && opcao2Selecionada.equals(opcoes[3])) {
+            return valorDigitado;
+        }
+
+        throw new RuntimeException("Erro inesperado - Nenhuma condição atendida.");
 
     }
 }

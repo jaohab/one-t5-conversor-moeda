@@ -1,20 +1,10 @@
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JLayer;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JSeparator;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 
 import res.Global;
 
@@ -24,10 +14,8 @@ public class Teste {
 
         String[] opcoes = {"Sim", "Não"};
 
-        //JOptionPane.showMessageDialog(null, "Ação incorreta", Global.TITULO, 3);
-        //System.out.println(JOptionPane.showOptionDialog(null, "Deseja fazer outra conversão?", Global.TITULO, 0, 3, null, opcoes, null));
-
-        
+        JOptionPane.showMessageDialog(null, "Ação incorreta", Global.TITULO, 3);
+        System.out.println(JOptionPane.showOptionDialog(null, "Deseja fazer outra conversão?", Global.TITULO, 0, 3, null, opcoes, null));
 
         JPanel quadro = new JPanel();
         JLabel txt1 = new JLabel("Converter ");

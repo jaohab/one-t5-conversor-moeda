@@ -27,10 +27,7 @@ public class Temperatura implements Conversores {
 
         // Construção do quadro de opções
 
-        final String[] BOTAO = { "Converter" };
-        final String[] BOTOES_CONFIRMACAO = { "Sim", "Não" };
         final String[] OPCOES = { "Celsius", "Fahrenheit", "Kelvin" };
-        final String AVISO_MENSAGEM = "Apenas números podem ser inseridos.\nPara inserir casas decimais utilize ponto (.)";
 
         JPanel quadro = new JPanel();
         JLabel txt1 = new JLabel("Converter ");
@@ -53,7 +50,7 @@ public class Temperatura implements Conversores {
 
             while (true) {
                 botaoPressionado = JOptionPane.showOptionDialog(null, quadro, Global.TITULO, JOptionPane.NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE, null, BOTAO, null);
+                        JOptionPane.QUESTION_MESSAGE, null, Global.BOTAO, null);
 
                 if (botaoPressionado == 0) { // Botão "CONVERTER" pressionado
 
@@ -63,7 +60,7 @@ public class Temperatura implements Conversores {
                         opcao2Selecionada = (String) opcoesLista2.getSelectedItem();
                         break;
                     } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, AVISO_MENSAGEM, Global.TITULO, 0);
+                        JOptionPane.showMessageDialog(null, Global.AVISO_MENSAGEM, Global.TITULO, 0);
                         valor.setText("");
                     }
 
@@ -86,7 +83,7 @@ public class Temperatura implements Conversores {
             // Continuar ou sair da função
 
             botaoPressionado = JOptionPane.showOptionDialog(null, "Deseja fazer outra conversão?", Global.TITULO, 0, 3,
-                    null, BOTOES_CONFIRMACAO, null);
+                    null, Global.BOTOES_CONFIRMACAO, null);
 
             if (botaoPressionado != 0) { // Sair
                 break;

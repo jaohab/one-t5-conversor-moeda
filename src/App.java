@@ -10,6 +10,14 @@ public class App {
 
     public static void main(String[] args) {
 
+        final String MSG = "Escolha qual função deseja usar: ";
+        final String MSG_FINAL = "<html><body width='%1s'><h1>Programa encerrado</h1>"
+                            + "Esse programa foi desenvolvido por <br>"
+                            + "João Henrique A. Batista, como um <br>" 
+                            + "desafio proposto pelo programa de <br>"
+                            + "educação ONE (Oracle Next Education).";
+        boolean fechar = false;
+
         // Construção da lista de opções do menu
 
         MenuPrincipalEnum[] menuPrincipal = MenuPrincipalEnum.values();
@@ -19,9 +27,6 @@ public class App {
         }
 
         // Menu Principal
-
-        final String MSG = "Escolha qual função deseja usar: ";
-        boolean fechar = false;
 
         while (!fechar) {
 
@@ -68,7 +73,7 @@ public class App {
         }
 
         // Agradecimento
-        JOptionPane.showMessageDialog(null, "AVISO_MENSAGEM", Global.TITULO, 0);
+        JOptionPane.showMessageDialog(null, MSG_FINAL, Global.TITULO, -1);
 
     }
 }

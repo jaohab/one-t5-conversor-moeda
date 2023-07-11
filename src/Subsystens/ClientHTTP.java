@@ -7,6 +7,10 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
+import javax.swing.JOptionPane;
+
+import res.Global;
+
 public class ClientHTTP {
 
     public String findData(String url) {
@@ -22,7 +26,8 @@ public class ClientHTTP {
             return response.body();
         } catch (IOException | InterruptedException ex) {
             ex.printStackTrace();
-            throw new RuntimeException("Erro ao buscar URL.");
+            JOptionPane.showMessageDialog(null, "Erro de conexão.", Global.TITULO, 0);
+            throw new RuntimeException("Erro ao buscar URL ou sem acesso a internet.");
         }
 
     }

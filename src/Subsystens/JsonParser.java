@@ -8,6 +8,7 @@ public class JsonParser {
     // Padrão de regex para extrair o valor "high" e criação do padrão
     private static final Pattern REGEX = Pattern.compile("\"high\":\"([^\"]+)\"|\"create_date\":\"([^\"]+)\"", Pattern.MULTILINE);
 
+    
     public String[] Parser(String json) {
 
         // Criação do matcher para encontrar o padrão no JSON

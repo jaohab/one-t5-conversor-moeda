@@ -9,8 +9,7 @@ public enum MoedasEnum {
     ARS("Peso Argentino", "ARS"), 
     CLP("Peso Chileno", "CLP"),
     JPY("Iene Japonês", "JPY"),
-    CNY("Yuan Chinês", "CNY"),
-    KRW("Won Sul-Coreano", "KRW");
+    CNY("Yuan Chinês", "CNY");
 
     private final String nome;
     private final String sigla;

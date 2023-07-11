@@ -1,6 +1,6 @@
 # Conversor de moeda - Challenge ONE - Alura
 
-Repositório do desafios proposto pela ONE (Oracle Next Education) | Alura de desenvolver um conversor.  
+Repositório do desafio proposto pela ONE (Oracle Next Education) | Alura de desenvolver um conversor.  
 
 ***
 

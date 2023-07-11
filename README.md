@@ -85,3 +85,5 @@ O sistema apresenta 3 funçãoes.
 ![Tela - Conversor de velocidades](resources/04-velocidade.png)
 
 ***
+
+![Badge](resources/cms_files_10224_1671211937Prancheta_8.png)

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Subsystens.TempCalculos;
+import subsystens.TempCalculos;
 import interfaces.Conversores;
 import res.Global;
 

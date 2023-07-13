@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Subsystens.MoedaCalculos;
+import subsystens.MoedaCalculos;
 import enums.MoedasEnum;
 import interfaces.Conversores;
 import res.Global;

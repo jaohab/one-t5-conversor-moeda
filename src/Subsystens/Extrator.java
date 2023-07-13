@@ -1,4 +1,4 @@
-package Subsystens;
+package subsystens;
 
 public class Extrator {
 
